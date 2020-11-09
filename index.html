@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Placar</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="./css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom CSS -->
+    <link href="./css/custom.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row text-center mt-30 linha">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-6 play" id="labelJodador1">Jogador Um</div>
+            <div class="col-md-6 play" id="labelJodador2">Jogador Dois</div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 play" id="pontuacaoP1">0</div>
+            <div class="col-md-6 play" id="pontuacaoP2">0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row text-center mt-30 linha2">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-12 jogos">
+              <span id="qnt1">0</span>
+              (<span id="labelQ">0</span>)
+              <span id="qnt2">0</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6" id="jodador">
+              <div class="form-group">
+                <label for="jogador1">Jogador Um</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="jogador1"
+                  placeholder="Nome do Jogador 1"
+                />
+              </div>
+            </div>
+            <div class="col-md-6" id="jodador">
+              <div class="form-group">
+                <label for="jogador2">Jogador Dois</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="jogador2"
+                  placeholder="Nome do Jogador 2"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 painel">
+              <span>Partidas</span>
+              <button id="bpqnt1" class="btn btn btn-success">+</button>
+              <button id="bmqnt1" class="btn btn-warning">-</button>
+            </div>
+            <div class="col-md-4" style="display: flex; flex-direction: column;">
+              <span>Melhor de </span>
+              <input type="number" name="melhor" id="qnt">
+            </div>
+            <div class="col-md-4 painel">
+              <span>Partidas</span>
+              <button id="bpqnt2" class="btn btn-success">+</button>
+              <button id="bmqnt2" class="btn btn-warning">-</button>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <button onclick="limp()" class="mt-10">Zerar</button>
+              </div>
+            </div>
+          </div>
+          <!-- 
+
+            <div class="text-center card-body" id="chronoExample">
+              <div class="values" style="padding: 10px 0;">00:00:00</div>
+              <div>
+                <button class="startButton btn btn-success mb-1">Start</button>
+                <button class="pauseButton btn btn-primary mb-1" >Pause</button>
+                <button class="stopButton btn btn-danger mb-1">Stop</button>
+                <button class="resetButton btn btn-warning mb-1">Reset</button>
+              </div>
+            </div>
+          
+          -->
+          
+          <div class="row" style="height: 100px; font-size: 22px;">
+            <div class="col-md-6" id="bolas1"></div>
+            <div class="col-md-6" id="bolas2"></div>
+          </div>
+
+          <div class="row" style="background-color: #fff;">
+            <div class="col-md-6" id="pontuacao">
+              <div class="row">
+                <button
+                  onClick="AddPoint('p1', 1)"
+                  class="balls"
+                  id="btnJogador1_1"
+                  style="background-color: red;"
+                >
+                  +1
+                </button>
+                <button
+                  onClick="AddPoint('p1', 2)"
+                  class="balls"
+                  id="btnJogador1_2"
+                  style="background-color: rgb(238, 255, 4);"
+                >
+                  +2
+                </button>
+                <button
+                  onClick="AddPoint('p1', 3)"
+                  class="balls"
+                  id="btnJogador1_3"
+                  style="background-color: rgb(9, 53, 0);"
+                >
+                  +3
+                </button>
+                <button
+                  onClick="AddPoint('p1', 4)"
+                  class="balls"
+                  id="btnJogador1_4"
+                  style="background-color: rgb(51, 42, 4);"
+                >
+                  +4
+                </button>
+                <button
+                  onClick="AddPoint('p1', 5)"
+                  class="balls"
+                  id="btnJogador1_5"
+                  style="background-color: rgb(0, 27, 148);"
+                >
+                  +5
+                </button>
+                <button
+                  onClick="AddPoint('p1', 6)"
+                  class="balls"
+                  id="btnJogador1_6"
+                  style="background-color: rgb(219, 17, 192);"
+                >
+                  +6
+                </button>
+                <button
+                  onClick="AddPoint('p1', 7)"
+                  class="balls"
+                  id="btnJogador1_7"
+                  style="background-color: rgb(0, 0, 0);"
+                >
+                 +7
+                </button>
+              </div>
+              <div class="row">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+
+              </div>
+              <div class="row">
+                <button
+                  onClick="SubPoint('p1', 1)"
+                  class="balls"
+                  id="btnJogador1_1"
+                  style="background-color: red;"
+                >
+                  -1
+                </button>
+                <button
+                  onClick="SubPoint('p1', 2)"
+                  class="balls"
+                  id="btnJogador1_2"
+                  style="background-color: rgb(238, 255, 4);"
+                >
+                  -2
+                </button>
+                <button
+                  onClick="SubPoint('p1', 3)"
+                  class="balls"
+                  id="btnJogador1_3"
+                  style="background-color: rgb(9, 53, 0);"
+                >
+                  -3
+                </button>
+                <button
+                  onClick="SubPoint('p1', 4)"
+                  class="balls"
+                  id="btnJogador1_4"
+                  style="background-color: rgb(51, 42, 4);"
+                >
+                  -4
+                </button>
+                <button
+                  onClick="SubPoint('p1', 5)"
+                  class="balls"
+                  id="btnJogador1_5"
+                  style="background-color: rgb(0, 27, 148);"
+                >
+                  -5
+                </button>
+                <button
+                  onClick="SubPoint('p1', 6)"
+                  class="balls"
+                  id="btnJogador1_6"
+                  style="background-color: rgb(219, 17, 192);"
+                >
+                  -6
+                </button>
+                <button
+                  onClick="SubPoint('p1', 7)"
+                  class="balls"
+                  id="btnJogador1_7"
+                  style="background-color: rgb(0, 0, 0);"
+                >
+                  -7
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6" id="pontuacao">
+              <div class="row">
+                <button
+                  onClick="AddPoint('p2', 1)"
+                  class="balls"
+                  id="btnJogador2_1"
+                  style="background-color: red;"
+                >
+                  +1
+                </button>
+                <button
+                  onClick="AddPoint('p2', 2)"
+                  class="balls"
+                  id="btnJogador2_2"
+                  style="background-color: rgb(238, 255, 4);"
+                >
+                  +2
+                </button>
+                <button
+                  onClick="AddPoint('p2', 3)"
+                  class="balls"
+                  id="btnJogador2_3"
+                  style="background-color: rgb(9, 53, 0);"
+                >
+                  +3
+                </button>
+                <button
+                  onClick="AddPoint('p2', 4)"
+                  class="balls"
+                  style="background-color: rgb(51, 42, 4);"
+                  id="btnJogador2_4"
+                >
+                  +4
+                </button>
+                <button
+                  onClick="AddPoint('p2', 5)"
+                  class="balls"
+                  style="background-color: rgb(0, 27, 148);"
+                  id="btnJogador2_5"
+                >
+                  +5
+                </button>
+                <button
+                  onClick="AddPoint('p2', 6)"
+                  class="balls"
+                  id="btnJogador2_6"
+                  style="background-color: rgb(219, 17, 192);"
+                >
+                  +6
+                </button>
+                <button
+                  onClick="AddPoint('p2', 7)"
+                  class="balls"
+                  id="btnJogador2_7"
+                  style="background-color: rgb(0, 0, 0);"
+                >
+                  +7
+                </button>
+              </div>
+              <div class="row">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+                <img class="imgs" width="40" src="./img/B1.jpg" alt="">
+
+              </div>
+              <div class="row">
+                <button
+                  onClick="SubPoint('p2', 1)"
+                  class="balls"
+                  id="btnJogador2_1"
+                  style="background-color: red;"
+                >
+                  -1
+                </button>
+                <button
+                  onClick="SubPoint('p2', 2)"
+                  class="balls"
+                  id="btnJogador2_2"
+                  style="background-color: rgb(238, 255, 4);"
+                >
+                  -2
+                </button>
+                <button
+                  onClick="SubPoint('p2', 3)"
+                  class="balls"
+                  id="btnJogador2_3"
+                  style="background-color: rgb(9, 53, 0);"
+                >
+                  -3
+                </button>
+                <button
+                  onClick="SubPoint('p2', 4)"
+                  class="balls"
+                  style="background-color: rgb(51, 42, 4);"
+                  id="btnJogador2_4"
+                >
+                  -4
+                </button>
+                <button
+                  onClick="SubPoint('p2', 5)"
+                  class="balls"
+                  style="background-color: rgb(0, 27, 148);"
+                  id="btnJogador2_5"
+                >
+                  -5
+                </button>
+                <button
+                  onClick="SubPoint('p2', 6)"
+                  class="balls"
+                  id="btnJogador2_6"
+                  style="background-color: rgb(219, 17, 192);"
+                >
+                  -6
+                </button>
+                <button
+                  onClick="SubPoint('p2', 7)"
+                  class="balls"
+                  id="btnJogador2_7"
+                  style="background-color: rgb(0, 0, 0);"
+                >
+                  -7
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="row sub linha">
+            <span id="subs" style="color: red">0</span>
+          </div>
+          <div class="box">
+            <button class="btn btn-default" onclick="zerar()">
+              Zerar Placar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="./js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/examples.min.js"> </script>
+    <!-- Placar JavaScript -->
+    <script src="./js/placar.js"></script>
+    <script src="./js/crono.js"></script>
+  </body>
+</html>
